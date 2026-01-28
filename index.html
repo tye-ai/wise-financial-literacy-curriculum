@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WISE Financial Literacy - Curriculum Guide v1.3.0</title>
+    <!-- Font Imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;800&family=Montserrat:wght@400;600;700&family=Satisfy&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --wise-navy: #0C2D48;
+            --wise-green: #28A745;
+            --wise-orange: #FF6B00;
+            --muted-red: #C65A5A;
+            --wise-gold: #F59E0B;
+            --canvas-gray: #F3F4F6;
+            --soft-green: #EAF6EF;
+            /* Standard Professional Print Sizes */
+            --body-size: 11pt;
+            --h1-size: 30pt;
+            --h2-size: 22pt;
+            --h3-size: 16pt;
+            --small-size: 10pt;
+        }
+
+        @media screen {
+            body {
+                background-color: var(--canvas-gray);
+                padding: 40px 0;
+            }
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--wise-navy);
+            margin: 0;
+            -webkit-print-color-adjust: exact;
+            line-height: 1.6;
+            font-size: var(--body-size);
+        }
+
+        .page {
+            width: 8.5in;
+            height: 11in;
+            padding: 0.6in 0.75in;
+            margin: 0 auto 30px auto;
+            background: #FFFFFF;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-top: 12px solid var(--wise-navy);
+            page-break-after: always;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 { font-family: 'Roboto Slab', serif; font-size: var(--h1-size); font-weight: 800; line-height: 1.1; color: var(--wise-navy); }
+        h2 { font-family: 'Roboto Slab', serif; font-size: var(--h2-size); font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem; color: var(--wise-navy); border-bottom: 2px solid #eee; padding-bottom: 4px; }
+        h3 { font-family: 'Roboto Slab', serif; font-size: var(--h3-size); font-weight: 700; margin-top: 1rem; margin-bottom: 0.25rem; color: var(--wise-navy); }
+        h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10pt; text-transform: uppercase; color: var(--wise-green); margin-top: 0.75rem; }
+        
+        .brand-accent {
+            font-family: 'Satisfy', cursive;
+            color: var(--wise-green);
+            display: inline-block;
+            transform: rotate(-2deg);
+        }
+
+        .section-header-pill {
+            background-color: var(--soft-green);
+            color: var(--wise-green);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .wise-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: var(--small-size);
+        }
+
+        .wise-table thead th {
+            background-color: var(--wise-navy);
+            color: white;
+            text-align: left;
+            padding: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            font-size: 10px;
+        }
+
+        .wise-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #E5E7EB;
+            vertical-align: top;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px solid #F3F4F6;
+            display: flex;
+            justify-content: space-between;
+            font-size: 9pt;
+            font-weight: 700;
+            color: #9CA3AF;
+            text-transform: uppercase;
+        }
+
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #E5E7EB;
+            padding: 6px 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .shaded-box {
+            background: #f9fafb;
+            border-left: 4px solid var(--wise-navy);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--wise-navy);
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .unit-card {
+            border-radius: 8px;
+            padding: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .page { margin: 0; box-shadow: none; border-radius: 0; border-top-width: 12px !important; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: COVER & TOC -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-8">
+            <div>
+                <h1 class="flex items-baseline">
+                    WISE <span class="brand-accent text-3xl mx-2">Financial</span> Literacy
+                </h1>
+                <p class="text-[9pt] font-bold uppercase tracking-[0.2em] mt-2 text-slate-500">Master Curriculum Guide v1.3.0</p>
+            </div>
+            <div class="section-header-pill">Table of Contents</div>
+        </header>
+
+        <div class="space-y-0 text-slate-700 mt-4">
+            <div class="toc-item"><span>Preface: Why Financial Literacy Matters</span> <span>P2</span></div>
+            <div class="toc-item"><span>Program Overview: At a Glance</span> <span>P3</span></div>
+            <div class="toc-item"><span>Key Features & Philosophy</span> <span>P4</span></div>
+            <div class="toc-item"><span>Implementation Delivery Models</span> <span>P5</span></div>
+            <div class="toc-item"><span>Parent & Community Engagement Strategies</span> <span>P6</span></div>
+            <div class="toc-item"><span>Middle School vs. High School Differentiation</span> <span>P7</span></div>
+            <div class="toc-item"><span>Evidence-Based Instructional Strategies</span> <span>P8</span></div>
+            <div class="toc-item"><span>Curriculum Map: Scope & Sequence</span> <span>P9</span></div>
+            <div class="toc-item"><span>Unit 1 Overview: Budgeting & Planning</span> <span>P10</span></div>
+            <div class="toc-item"><span>Unit 2 Overview: Money Mindset & Values</span> <span>P11</span></div>
+            <div class="toc-item"><span>Unit 3 Overview: Saving, Interest & Inflation</span> <span>P12</span></div>
+            <div class="toc-item"><span>Materials & Resources Breakdown</span> <span>P13</span></div>
+            <div class="toc-item"><span>Assessment & Evaluation Framework</span> <span>P14</span></div>
+            <div class="toc-item"><span>Sample Implementation Timeline</span> <span>P15</span></div>
+            <div class="toc-item"><span>Facilitator Preparation Checklist</span> <span>P16</span></div>
+            <div class="toc-item"><span>Differentiation for Diverse Learners</span> <span>P17</span></div>
+            <div class="toc-item"><span>Technology Integration & Digital Tools</span> <span>P18</span></div>
+            <div class="toc-item"><span>Troubleshooting Common Challenges</span> <span>P19</span></div>
+            <div class="toc-item"><span>Measuring Program Impact</span> <span>P20</span></div>
+            <div class="toc-item"><span>Frequently Asked Questions</span> <span>P21</span></div>
+            <div class="toc-item"><span>Additional Resources & Links</span> <span>P22</span></div>
+            <div class="toc-item"><span>Acknowledgments & BEAC Credits</span> <span>P23</span></div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Master Guide</span>
+            <span>Page 1 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 2: PREFACE -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline leading-none">
+                WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy
+            </h1>
+            <div class="section-header-pill">Preface</div>
+        </header>
+
+        <h2>Why Financial Literacy Matters</h2>
+        <p>Across the United States and within our local communities, young people are navigating increasingly complex financial realities. Access to high-quality financial education is no longer optional—it is essential.</p>
+        <p>BEAC developed the WISE Financial Literacy curriculum to empower students, particularly those from underserved and urban communities, with the knowledge, confidence, and strategies needed to make informed financial decisions that impact their futures.</p>
+        <p>Grounded in cultural responsiveness and aligned to Illinois State Financial Literacy Standards, this curriculum provides students with real-world tools for budgeting, saving, earning, and building wealth over time.</p>
+        
+        <div class="shaded-box border-green-600 bg-green-50/30">
+            <p class="font-bold text-green-800 italic">WISE—Wealth, Income, Saving, Empowerment—reflects our belief that when we equip young people with financial knowledge, teach practical skills, and nurture their capacity to build wealth, we create lasting generational change.</p>
+        </div>
+
+        <p>Through intentional instruction, family engagement, and community partnerships, we aim to ensure every student is not only financially literate but financially powerful.</p>
+        <p class="text-xl font-bold italic mt-12 text-center text-[#0C2D48]">Welcome to a journey of empowerment, opportunity, and success.</p>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Preface</span>
+            <span>Page 2 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 3: PROGRAM OVERVIEW -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Overview</div>
+        </header>
+
+        <h2>At a Glance</h2>
+        <table class="wise-table">
+            <tbody>
+                <tr><td class="w-1/3"><b>Program Name</b></td><td>WISE Financial Literacy</td></tr>
+                <tr><td><b>Developed By</b></td><td>BEAC</td></tr>
+                <tr><td><b>Grade Levels</b></td><td>7–12</td></tr>
+                <tr><td><b>Total Units</b></td><td>3 Units</td></tr>
+                <tr><td><b>Total Lessons</b></td><td>9 (3 lessons per unit)</td></tr>
+                <tr><td><b>Duration</b></td><td>12–15 hours of instruction</td></tr>
+                <tr><td><b>Standards Alignment</b></td><td>ISBE (SS.EC.FL.1-3.9-12)</td></tr>
+                <tr><td><b>Format</b></td><td>Flexible delivery (After-school, homeroom, elective)</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Curriculum Philosophy</h3>
+        <p>WISE Financial Literacy is built on four core pillars:</p>
+        <div class="grid grid-cols-2 gap-4 mt-2">
+            <div class="p-4 border rounded border-slate-100">
+                <h4 class="m-0">Wealth</h4>
+                <p class="text-[9.5pt]">Understanding how to build and preserve financial resources over time.</p>
+            </div>
+            <div class="p-4 border rounded border-slate-100">
+                <h4 class="m-0 text-slate-700">Income</h4>
+                <p class="text-[9.5pt]">Exploring career pathways, earning strategies, and income management.</p>
+            </div>
+            <div class="p-4 border rounded border-slate-100">
+                <h4 class="m-0 text-amber-600">Saving</h4>
+                <p class="text-[9.5pt]">Developing disciplined saving habits and understanding growth.</p>
+            </div>
+            <div class="p-4 border rounded border-slate-100">
+                <h4 class="m-0 text-blue-800">Empowerment</h4>
+                <p class="text-[9.5pt]">Building financial confidence, agency, and generational impact.</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Overview</span>
+            <span>Page 3 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 4: KEY FEATURES -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Overview Cont.</div>
+        </header>
+
+        <h2>Who This Curriculum Serves</h2>
+        <ul class="list-disc list-inside space-y-3 mb-6">
+            <li><b>Students in grades 7–12</b> who need foundational and applied financial literacy skills.</li>
+            <li><b>Urban and underserved communities</b> where access to financial education is limited.</li>
+            <li><b>Diverse learners</b> who benefit from culturally responsive, student-centered instruction.</li>
+            <li><b>Schools and organizations</b> seeking high-quality, standards-aligned financial education.</li>
+        </ul>
+
+        <h2>Key Features</h2>
+        <div class="space-y-4">
+            <p>✅ <b>Standards-Aligned</b> – Mapped to Illinois State Financial Literacy Standards</p>
+            <p>✅ <b>Culturally Responsive</b> – Reflects the realities and experiences of diverse student populations</p>
+            <p>✅ <b>Flexible Delivery</b> – Works in after-school programs, homeroom/advisory, or elective courses</p>
+            <p>✅ <b>Family Engagement</b> – Includes parent flyers and take-home activities for every lesson</p>
+            <p>✅ <b>Multi-Modal Resources</b> – Facilitator guides, slide decks, video scripts, worksheets, and more</p>
+            <p>✅ <b>Project-Based Learning</b> – Emphasizes real-world application and student reflection</p>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Features</span>
+            <span>Page 4 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 5: DELIVERY MODELS -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Implementation</div>
+        </header>
+
+        <h2>Delivery Models</h2>
+        <p>BEAC designed this curriculum with flexibility in mind. Choose the model that best fits your school or program:</p>
+
+        <div class="space-y-6 mt-4">
+            <div class="p-4 border-l-4 border-wise-navy bg-slate-50/70 rounded-lg shadow-sm">
+                <h3 class="m-0 text-wise-navy">Model 1: After-School Programming</h3>
+                <p class="text-[10pt]"><b>Best For:</b> Enrichment programs, community centers, 21st Century Learning Centers.</p>
+                <p class="text-[10pt]"><b>Format:</b> 1–2 lessons per week over 12–15 weeks. Project-based delivery. Room for guest speakers and field trips. <b>Pacing:</b> 45–60 minutes per session.</p>
+            </div>
+
+            <div class="p-4 border-l-4 border-wise-green bg-green-50/60 rounded-lg shadow-sm">
+                <h3 class="m-0 text-wise-green">Model 2: Homeroom/Advisory Integration</h3>
+                <p class="text-[10pt]"><b>Best For:</b> Schools with daily or weekly advisory/homeroom blocks.</p>
+                <p class="text-[10pt]"><b>Format:</b> 1 full lesson per week or split across 3–4 sessions. <b>Pacing:</b> 15–25 minute segments. Consistent timing supports habit-building.</p>
+            </div>
+
+            <div class="p-4 border-l-4 border-amber-600 bg-amber-50/60 rounded-lg shadow-sm">
+                <h3 class="m-0 text-amber-700">Model 3: Elective Course or Mini-Unit</h3>
+                <p class="text-[10pt]"><b>Best For:</b> Standalone units within social studies, CTE, or consumer education courses.</p>
+                <p class="text-[10pt]"><b>Format:</b> Semester-based or 9-week rotation. <b>Pacing:</b> 2–3 lessons per week. Include end-of-unit projects.</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Delivery Models</span>
+            <span>Page 5 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 6: COMMUNITY ENGAGEMENT -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Community</div>
+        </header>
+
+        <h2>Parent & Community Engagement</h2>
+        <p>Financial education is most powerful when it extends into students' homes and communities. BEAC provides multiple tools to engage families and community partners:</p>
+        
+        <h3 class="mt-8">Engagement Strategies</h3>
+        <ul class="space-y-4">
+            <li class="p-4 border border-slate-200 rounded">
+                <b>Parent Flyers:</b> Every lesson includes a take-home flyer with: what students are learning, discussion prompts for families, and simple at-home activities.
+            </li>
+            <li class="p-4 border border-slate-200 rounded">
+                <b>Family Financial Literacy Nights:</b> Host showcases during PTA meetings, back-to-school night, or student-led conferences.
+            </li>
+            <li class="p-4 border border-slate-200 rounded">
+                <b>Guest Panels:</b> Invite local professionals (bankers, entrepreneurs, alumni) to share their financial journeys.
+            </li>
+            <li class="p-4 border border-slate-200 rounded">
+                <b>Social Media:</b> Encourage students to share financial tips via school social media or newsletters.
+            </li>
+        </ul>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Community</span>
+            <span>Page 6 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 7: DIFFERENTIATION -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Differentiation</div>
+        </header>
+
+        <h2>Middle School vs. High School Distinctions</h2>
+        <p>Instructional approaches should be tailored to developmental stages:</p>
+
+        <div class="grid grid-cols-2 gap-8 mt-8">
+            <div class="bg-green-50/70 p-6 rounded-lg border border-green-100 shadow-sm">
+                <h3 class="mt-0 text-green-800">Grades 7–8</h3>
+                <p class="text-[10pt] font-bold">Focus:</p>
+                <ul class="text-[9.5pt] list-disc list-inside mb-4">
+                    <li>Mindset, goal-setting, and basic budgeting.</li>
+                    <li>Games, visuals, and scenarios (school store).</li>
+                    <li>Journaling guides critical thinking.</li>
+                </ul>
+                <p class="text-[10pt] font-bold">Instructional Tips:</p>
+                <p class="text-[9.5pt] italic">Relate to sneakers and lunch money. Use role-playing and interactive movement.</p>
+            </div>
+            <div class="bg-slate-50/70 p-6 rounded-lg border border-slate-100 shadow-sm">
+                <h3 class="mt-0 text-wise-navy">Grades 9–12</h3>
+                <p class="text-[10pt] font-bold">Focus:</p>
+                <ul class="text-[9.5pt] list-disc list-inside mb-4">
+                    <li>Complex topics: interest, inflation, credit.</li>
+                    <li>Career path planning and apps.</li>
+                    <li>Independent spending plans.</li>
+                </ul>
+                <p class="text-[10pt] font-bold">Instructional Tips:</p>
+                <p class="text-[9.5pt] italic">Connect to college costs and apartments. Emphasize long-term decision sequences.</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Differentiation</span>
+            <span>Page 7 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 8: BEST PRACTICES -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Best Practices</div>
+        </header>
+
+        <h2>Instructional Strategies</h2>
+        <p>BEAC recommends the following evidence-based approaches:</p>
+
+        <div class="space-y-6 mt-6">
+            <div>
+                <h4 class="text-wise-green">✅ Make Content Culturally Responsive</h4>
+                <p class="text-[10pt]">Use examples that reflect lived experiences. Address systemic barriers to wealth-building and celebrate diverse financial traditions.</p>
+            </div>
+            <div>
+                <h4 class="text-wise-green">✅ Frequent Reflection & Journaling</h4>
+                <p class="text-[10pt]">Personal connection deepens learning. It builds self-awareness around existing money beliefs and community-driven norms.</p>
+            </div>
+            <div>
+                <h4 class="text-wise-green">✅ Reinforce with Repetition</h4>
+                <p class="text-[10pt]">Revisit SMART goals, saving strategies, and budgeting principles across lessons to ensure mastery.</p>
+            </div>
+            <div>
+                <h4 class="text-wise-green">✅ Blend Instruction with Active Learning</h4>
+                <p class="text-[10pt]">Mix teacher-led content with discussion, role-play, and peer teaching to increase long-term retention.</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Best Practices</span>
+            <span>Page 8 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 9: CURRICULUM MAP -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Curriculum Map</div>
+        </header>
+
+        <h2>Scope & Sequence</h2>
+        <table class="wise-table">
+            <thead>
+                <tr>
+                    <th>Unit</th>
+                    <th>Title</th>
+                    <th>Lessons</th>
+                    <th>Key Standards</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Budgeting & Planning</td><td>3</td><td>SS.EC.FL.1-2.9-12</td><td>4–5 hours</td></tr>
+                <tr><td>2</td><td>Money Mindset & Values</td><td>3</td><td>SS.EC.FL.1-2.9-12</td><td>4–5 hours</td></tr>
+                <tr><td>3</td><td>Saving, Interest & Inflation</td><td>3</td><td>SS.EC.FL.3.9-12</td><td>4–5 hours</td></tr>
+            </tbody>
+        </table>
+
+        <h3 class="mt-10">Standards Alignment Detail</h3>
+        <div class="space-y-5 text-[10pt]">
+            <p><b>SS.EC.FL.1.9-12:</b> Analyze the costs and benefits of various strategies to increase income.</p>
+            <p><b>SS.EC.FL.2.9-12:</b> Explain how to make informed financial decisions by collecting information, planning, and budgeting.</p>
+            <p><b>SS.EC.FL.3.9-12:</b> Explain how time, interest rates, and inflation influence savings patterns over a lifetime.</p>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Curriculum Map</span>
+            <span>Page 9 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 10: UNIT 1 -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Unit 1 Overview</div>
+        </header>
+
+        <div class="unit-card bg-gradient-to-r from-green-600 to-green-800">
+            <h2 class="m-0 text-white border-none">UNIT 1: BUDGETING & PLANNING</h2>
+            <p class="text-sm opacity-90 m-0">Focus: Building foundations for stability and habit formation</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8">
+            <div>
+                <h3 class="mt-0">Objectives:</h3>
+                <ul class="text-[10pt] list-disc list-inside space-y-1">
+                    <li>Define a budget and purpose</li>
+                    <li>Identify income and expenses</li>
+                    <li>Understand Needs vs. Wants</li>
+                    <li>Create simple spending plans</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="mt-0">Lessons:</h3>
+                <ol class="text-[10pt] list-decimal list-inside space-y-2">
+                    <li><b>Intro to Budgeting:</b> Basics</li>
+                    <li><b>Needs vs. Wants:</b> Practice</li>
+                    <li><b>Savings Habit:</b> SMART Goals</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="shaded-box bg-slate-50">
+            <h3>Included Materials:</h3>
+            <p class="text-[10pt]">3 Facilitator Guides, 3 Worksheets (Budgeting, Needs/Wants Checklist, SMART Goal), 3 Parent Flyers, 3 Video Scripts, 3 Slide Outlines.</p>
+        </div>
+
+        <h3>Culturally Responsive Features:</h3>
+        <ul class="text-[10pt] list-disc list-inside space-y-1">
+            <li>Realistic scenarios for urban youth populations.</li>
+            <li>Promotes decision-making based on community priorities.</li>
+            <li>Resonates with students from underserved communities.</li>
+        </ul>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Unit 1</span>
+            <span>Page 10 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 11: UNIT 2 -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Unit 2 Overview</div>
+        </header>
+
+        <div class="unit-card bg-gradient-to-r from-orange-500 to-orange-700">
+            <h2 class="m-0 text-white border-none">UNIT 2: MONEY MINDSET & VALUES</h2>
+            <p class="text-sm opacity-90 m-0">Focus: Understanding the influence of identity and culture</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8">
+            <div>
+                <h3 class="mt-0">Objectives:</h3>
+                <ul class="text-[10pt] list-disc list-inside space-y-1">
+                    <li>Define money mindset beliefs</li>
+                    <li>Examine cultural influences</li>
+                    <li>Align goals with personal values</li>
+                    <li>Set contextual SMART goals</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="mt-0">Lessons:</h3>
+                <ol class="text-[10pt] list-decimal list-inside space-y-2">
+                    <li><b>Mindset Basics:</b> Formation</li>
+                    <li><b>Culture & Family:</b> Shape</li>
+                    <li><b>Values & Goals:</b> Logic</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="shaded-box bg-slate-50">
+            <h3>Included Materials:</h3>
+            <p class="text-[10pt]">3 Facilitator Guides, 3 Worksheets (Mindset Reflection, Influence Map, SMART Goal Planning), 3 Parent Flyers, 3 Video Scripts, 3 Slide Outlines.</p>
+        </div>
+
+        <h3>Culturally Responsive Features:</h3>
+        <ul class="text-[10pt] list-disc list-inside space-y-1">
+            <li>Invites students to reflect on community financial experiences.</li>
+            <li>Promotes self-determination and agency.</li>
+            <li>Inclusive for diverse socioeconomic backgrounds.</li>
+        </ul>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Unit 2</span>
+            <span>Page 11 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 12: UNIT 3 -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Unit 3 Overview</div>
+        </header>
+
+        <div class="unit-card bg-gradient-to-r from-teal-600 to-blue-700">
+            <h2 class="m-0 text-white border-none">UNIT 3: SAVING, INTEREST & INFLATION</h2>
+            <p class="text-sm opacity-90 m-0">Focus: Building generational wealth and long-term awareness</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8">
+            <div>
+                <h3 class="mt-0">Objectives:</h3>
+                <ul class="text-[10pt] list-disc list-inside space-y-1">
+                    <li>Short/long term saving goals</li>
+                    <li>Simple vs. Compound Interest</li>
+                    <li>Inflation's effect on power</li>
+                    <li>Critical thinking about habits</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="mt-0">Lessons:</h3>
+                <ol class="text-[10pt] list-decimal list-inside space-y-2">
+                    <li><b>Saving Matters:</b> Objectives</li>
+                    <li><b>Interest:</b> Money growth</li>
+                    <li><b>Inflation:</b> Future power</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="shaded-box bg-slate-50">
+            <h3>Included Materials:</h3>
+            <p class="text-[10pt]">3 Facilitator Guides, 3 Worksheets (Habits/Priorities, Interest in Action, Buying Power), 3 Parent Flyers, 3 Video Scripts, 3 Slide Outlines.</p>
+        </div>
+
+        <h3>Culturally Responsive Features:</h3>
+        <ul class="text-[10pt] list-disc list-inside space-y-1">
+            <li>Connects savings to realities (family goals, work).</li>
+            <li>Encourages real-life long-term goal planning.</li>
+            <li>Equity-centered access to financial vocabulary.</li>
+        </ul>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Unit 3</span>
+            <span>Page 12 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 13: RESOURCES -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Resources</div>
+        </header>
+
+        <h2>Turn-key Teaching Package</h2>
+        <p>Every lesson comes with a complete teaching package designed for facilitator success:</p>
+
+        <div class="grid grid-cols-2 gap-8 mt-8">
+            <div class="p-5 border-2 border-slate-50 rounded bg-slate-50/50">
+                <h3 class="m-0 text-wise-navy">For Facilitators:</h3>
+                <ul class="text-[10pt] space-y-3 mt-4">
+                    <li>• <b>Lesson Overview:</b> 1-page quick ref.</li>
+                    <li>• <b>Facilitator Guide:</b> Full plans.</li>
+                    <li>• <b>Slide Deck Outline:</b> 5–6 slides.</li>
+                    <li>• <b>Video Script:</b> 3-minute content.</li>
+                    <li>• <b>Answer Keys & Rubrics.</b></li>
+                </ul>
+            </div>
+            <div class="p-5 border-2 border-green-50 rounded bg-green-50/20">
+                <h3 class="m-0 text-wise-green">For Students/Families:</h3>
+                <ul class="text-[10pt] space-y-3 mt-4">
+                    <li>• <b>Student Worksheet:</b> Print-ready.</li>
+                    <li>• <b>Parent Flyer:</b> Discussion prompts and take-home activities.</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Resources</span>
+            <span>Page 13 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 14: ASSESSMENT -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Assessment</div>
+        </header>
+
+        <h2>Measuring Success</h2>
+        <p>BEAC recommends a multi-faceted approach to assessment for institutional reporting:</p>
+
+        <div class="grid grid-cols-2 gap-8 mt-8">
+            <div>
+                <h3>Formative (Ongoing)</h3>
+                <ul class="text-[10pt] space-y-2">
+                    <li>Journal reflections</li>
+                    <li>Class participation</li>
+                    <li>Worksheet completion</li>
+                    <li>Peer feedback sessions</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Summative (End)</h3>
+                <ul class="text-[10pt] space-y-2">
+                    <li>SMART Goal presentations</li>
+                    <li>Budget project completion</li>
+                    <li>Mindset growth reflections</li>
+                    <li>Pre/post knowledge surveys</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="mt-12">Student Success Indicators</h3>
+        <div class="space-y-3 mt-4">
+            <p>✅ Defines key financial vocabulary.</p>
+            <p>✅ Creates a realistic budget based on income/expenses.</p>
+            <p>✅ Articulates personal financial values and goals.</p>
+            <p>✅ Shows increased confidence in decision-making.</p>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Assessment</span>
+            <span>Page 14 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 15: TIMELINE -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Timeline</div>
+        </header>
+
+        <h2>Sample Implementation Schedule</h2>
+        
+        <div class="space-y-8 mt-6">
+            <div class="p-4 border rounded-lg border-slate-100 bg-slate-50/70 shadow-sm">
+                <p class="font-bold text-wise-navy">Weeks 1-5: Unit 1 – Budgeting & Planning</p>
+                <ul class="text-[10pt] columns-2 ml-4 mt-2">
+                    <li>W1: Intro to Budgeting</li>
+                    <li>W2: Needs vs. Wants</li>
+                    <li>W3: Saving Habits</li>
+                    <li>W4: Budget Project</li>
+                    <li>W5: Showcase</li>
+                </ul>
+            </div>
+
+            <div class="p-4 border rounded-lg border-slate-100 bg-green-50/40 shadow-sm">
+                <p class="font-bold text-wise-green">Weeks 6-10: Unit 2 – Money Mindset & Values</p>
+                <ul class="text-[10pt] columns-2 ml-4 mt-2">
+                    <li>W6: Mindsets</li>
+                    <li>W7: Community Shape</li>
+                    <li>W8: Financial Values</li>
+                    <li>W9: Review/Goals</li>
+                    <li>W10: Literacy Night</li>
+                </ul>
+            </div>
+
+            <div class="p-4 border rounded-lg border-slate-100 bg-amber-50/40 shadow-sm">
+                <p class="font-bold text-amber-700">Weeks 11-15: Unit 3 – Saving, Interest & Inflation</p>
+                <ul class="text-[10pt] columns-2 ml-4 mt-2">
+                    <li>W11: Savings Logic</li>
+                    <li>W12: Interest Growth</li>
+                    <li>W13: Inflation Power</li>
+                    <li>W14: Capstone</li>
+                    <li>W15: Graduation</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Timeline</span>
+            <span>Page 15 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 16: PREP -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Checklist</div>
+        </header>
+
+        <h2>Facilitator Preparation Checklist</h2>
+        
+        <div class="space-y-6 mt-6">
+            <div>
+                <h3>Program-Level Readiness</h3>
+                <div class="checklist-item"><div class="checkbox"></div> Review Curriculum Guide</div>
+                <div class="checklist-item"><div class="checkbox"></div> Identify delivery model and schedule</div>
+                <div class="checklist-item"><div class="checkbox"></div> Secure materials (worksheets, paper, markers)</div>
+                <div class="checklist-item"><div class="checkbox"></div> Set up digital resources and family events</div>
+            </div>
+
+            <div>
+                <h3>Unit-Level Readiness</h3>
+                <div class="checklist-item"><div class="checkbox"></div> Read all 3 lesson plans in the unit</div>
+                <div class="checklist-item"><div class="checkbox"></div> Review objectives and standards</div>
+                <div class="checklist-item"><div class="checkbox"></div> Prepare parent flyers for distribution</div>
+                <div class="checklist-item"><div class="checkbox"></div> Gather supplemental tools</div>
+            </div>
+
+            <div>
+                <h3>Lesson-Level Readiness</h3>
+                <div class="checklist-item"><div class="checkbox"></div> Read Facilitator Guide thoroughly</div>
+                <div class="checklist-item"><div class="checkbox"></div> Print student worksheets (1 per student)</div>
+                <div class="checklist-item"><div class="checkbox"></div> Prepare answer key for reference</div>
+                <div class="checklist-item"><div class="checkbox"></div> Send parent flyer home with students</div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Checklist</span>
+            <span>Page 16 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 17: DIVERSE NEEDS -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Inclusion</div>
+        </header>
+
+        <h2>Meeting Diverse Learning Needs</h2>
+        <div class="grid grid-cols-2 gap-x-10 gap-y-10 mt-8">
+            <div>
+                <h4 class="text-wise-navy">For ELL Students</h4>
+                <ul class="text-[10pt] space-y-2 ml-4 list-disc">
+                    <li>Vocabulary lists with visual aids</li>
+                    <li>Graphic organizers for plans</li>
+                    <li>Extra reflection time</li>
+                    <li>Bilingual peer pairings</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-wise-navy">For IEPs/504 Plans</h4>
+                <ul class="text-[10pt] space-y-2 ml-4 list-disc">
+                    <li>Digital worksheet access</li>
+                    <li>Allow calculators/apps</li>
+                    <li>Oral response alternatives</li>
+                    <li>Smaller task segments</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-wise-navy">For Advanced Learners</h4>
+                <ul class="text-[10pt] space-y-2 ml-4 list-disc">
+                    <li>Investment research tasks</li>
+                    <li>Entrepreneurship extensions</li>
+                    <li>Peer mentoring roles</li>
+                    <li>Real-world news analysis</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-wise-navy">For Struggling Learners</h4>
+                <ul class="text-[10pt] space-y-2 ml-4 list-disc">
+                    <li>Pre-teach key vocabulary</li>
+                    <li>Hands-on manipulatives</li>
+                    <li>Sentence starters</li>
+                    <li>Frequent understanding checks</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Inclusion</span>
+            <span>Page 17 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 18: TECHNOLOGY -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Technology</div>
+        </header>
+
+        <h2>Technology Integration</h2>
+        <p>While WISE Financial Literacy can be delivered without technology, these tools enhance engagement:</p>
+
+        <div class="grid grid-cols-2 gap-10 mt-10">
+            <div class="space-y-6">
+                <h4 class="text-wise-green">Budgeting & Games</h4>
+                <ul class="text-[10pt] space-y-4">
+                    <li>• <b>Mint / YNAB:</b> Real budgeting.</li>
+                    <li>• <b>Banzai:</b> Finance simulations.</li>
+                    <li>• <b>Financial Football:</b> Math games.</li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-wise-green">Video & Presentation</h4>
+                <ul class="text-[10pt] space-y-4">
+                    <li>• <b>Khan Academy:</b> Video lessons.</li>
+                    <li>• <b>Canva:</b> High-impact student decks.</li>
+                    <li>• <b>Padlet:</b> Collaborative boards.</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Technology</span>
+            <span>Page 18 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 19: TROUBLESHOOTING -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Troubleshooting</div>
+        </header>
+
+        <h2>Common Challenges & Solutions</h2>
+        <div class="space-y-8 mt-6">
+            <div class="p-5 border border-slate-100 rounded bg-slate-50/30">
+                <p class="font-bold text-wise-navy m-0">Challenge: Student Disengagement</p>
+                <p class="text-[10pt] mt-2"><b>Solutions:</b> Use real-life scenarios reflecting student experiences. Invite local guest speakers. Connect literacy to specific student dreams.</p>
+            </div>
+            <div class="p-5 border border-slate-100 rounded bg-slate-50/30">
+                <p class="font-bold text-wise-navy m-0">Challenge: Family Engagement</p>
+                <p class="text-[10pt] mt-2"><b>Solutions:</b> Host family literacy nights with incentives. Use text apps. Offer prizes for returned parent flyers.</p>
+            </div>
+            <div class="p-5 border border-slate-100 rounded bg-slate-50/30">
+                <p class="font-bold text-wise-navy m-0">Challenge: Limited Instructional Time</p>
+                <p class="text-[10pt] mt-2"><b>Solutions:</b> Prioritize Unit 1 and Unit 3. Use video scripts as flipped homework. Focus on depth over breadth.</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Troubleshooting</span>
+            <span>Page 19 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 20: IMPACT -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Impact</div>
+        </header>
+
+        <h2>Reporting & Data</h2>
+        <p>BEAC recommends tracking the following metrics to demonstrate effectiveness:</p>
+
+        <div class="grid grid-cols-2 gap-10 mt-10">
+            <div class="space-y-8">
+                <div>
+                    <h3>Student Gains</h3>
+                    <ul class="text-[10pt] space-y-2 ml-4 list-disc">
+                        <li>Pre/post assessment percentages</li>
+                        <li>Vocabulary mastery scores</li>
+                        <li>Project completion rates</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Confidence</h3>
+                    <ul class="text-[10pt] space-y-2 ml-4 list-disc">
+                        <li>Self-reported budgeting confidence</li>
+                        <li>Mindset shifts (growth vs. fixed)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="space-y-8">
+                <div>
+                    <h3>Engagement</h3>
+                    <ul class="text-[10pt] space-y-2 ml-4 list-disc">
+                        <li>Number of flyers returned</li>
+                        <li>Literacy night attendance</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Behavioral</h3>
+                    <ul class="text-[10pt] space-y-2 ml-4 list-disc">
+                        <li>% of active SMART goals</li>
+                        <li>Started savings habits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Impact</span>
+            <span>Page 20 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 21: FAQ -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">FAQ</div>
+        </header>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="space-y-8 mt-6 text-[10pt]">
+            <div>
+                <p class="font-bold text-wise-navy">Q: Can this be taught by non-experts?</p>
+                <p class="mt-1">Yes! WISE is designed for educators and youth workers. Facilitator Guides include scripts and background info to support any delivery model.</p>
+            </div>
+            <div>
+                <p class="font-bold text-wise-navy">Q: What if our students don't have bank accounts?</p>
+                <p class="mt-1">The curriculum uses hypothetical scenarios to teach principles. Students learn the logic for their future financial potential.</p>
+            </div>
+            <div>
+                <p class="font-bold text-wise-navy">Q: Can I adapt the pacing?</p>
+                <p class="mt-1">Absolutely! WISE is designed for flexibility. You can teach 1 lesson per week or condense the content into intensive segments.</p>
+            </div>
+            <div>
+                <p class="font-bold text-wise-navy">Q: How do I handle sensitive topics?</p>
+                <p class="mt-1">Approach discussions with empathy. Acknowledge systemic barriers and focus on asset-based empowerment rather than deficit narratives.</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • FAQ</span>
+            <span>Page 21 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 22: ADDITIONAL RESOURCES -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Links</div>
+        </header>
+
+        <h2>Resources & External Links</h2>
+        <div class="grid grid-cols-2 gap-10 mt-10 text-[10pt]">
+            <div class="space-y-6">
+                <h4 class="text-wise-green">For Facilitators</h4>
+                <p>• <b>Jump$tart Coalition:</b> jumpstart.org</p>
+                <p>• <b>Council for Economic Education:</b> councilforeconed.org</p>
+                <p>• <b>FDIC Money Smart:</b> fdic.gov/money-smart</p>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-wise-green">For Families</h4>
+                <p>• <b>MyMoney.gov:</b> Gov education portal.</p>
+                <p>• <b>Khan Academy Finance:</b> Video lessons.</p>
+                <p>• <b>FitMoney:</b> Familyactivities.org</p>
+            </div>
+        </div>
+
+        <div class="mt-auto border-t p-10 text-center text-[9pt] text-slate-500">
+            <p>© 2025 BEAC Organization. All rights reserved. WISE Curriculum and associated marks are property of BEAC. Standard distribution v1.3.0.</p>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Links</span>
+            <span>Page 22 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 23: ACKNOWLEDGMENTS -->
+    <div class="page">
+        <header class="flex justify-between items-start mb-6">
+            <h1 class="text-2xl font-black flex items-baseline">WISE <span class="brand-accent text-xl mx-2">Financial</span> Literacy</h1>
+            <div class="section-header-pill">Acknowledgments</div>
+        </header>
+
+        <p class="text-[11pt] mt-12 leading-loose">BEAC proudly acknowledges the many voices, lived experiences, and aspirations that inspired the creation of the WISE Financial Literacy curriculum. This resource was designed with a deep commitment to serving youth in underserved communities, ensuring every student builds the financial confidence, knowledge, and resilience needed to thrive.</p>
+        
+        <p class="mt-10 font-bold text-wise-navy">We extend our gratitude to:</p>
+        <ul class="list-disc list-inside space-y-3 mt-4 text-[11pt]">
+            <li>Students and families advocating for equitable education.</li>
+            <li>Educators dedicated to culturally affirming instruction.</li>
+            <li>Community leaders sharing wisdom and agency.</li>
+        </ul>
+
+        <div class="mt-auto text-center py-16 border-t-2 border-slate-100">
+            <h1 class="text-3xl text-wise-navy">WISE—Wealth, Income, Saving, Empowerment</h1>
+            <p class="italic text-wise-green font-bold text-xl mt-2">Together, we grow futures.</p>
+        </div>
+
+        <footer class="footer">
+            <span>WISE Financial Literacy • Credits</span>
+            <span>Page 23 of 24</span>
+        </footer>
+    </div>
+
+    <!-- PAGE 24: BACK COVER -->
+    <div class="page bg-[#0C2D48] text-white">
+        <div class="flex-grow flex flex-col items-center justify-center text-center p-16">
+            <h1 class="text-white border-b-2 border-white pb-6 mb-6 text-4xl">WISE FINANCIAL LITERACY</h1>
+            <h2 class="brand-accent text-3xl text-[#28A745] border-none" style="transform:none; font-family:'Satisfy';">Wealth • Income • Saving • Empowerment</h2>
+            
+            <div class="space-y-4 text-base uppercase tracking-[0.3em] my-12 border-y border-white/20 py-12 w-full">
+                <p>Grades 7–12</p>
+                <p>9 Lessons | 3 Units</p>
+                <p>Standards-Aligned</p>
+                <p>Culturally Responsive</p>
+            </div>
+
+            <div class="text-sm opacity-70">
+                <p class="font-bold">Developed By BEAC</p>
+                <p>www.beacorganization.org</p>
+                <p>2025 Edition</p>
+            </div>
+        </div>
+        
+        <footer class="footer border-t-white/20 text-white/50">
+            <span>Empowering the Future</span>
+            <span>Back Cover</span>
+        </footer>
+    </div>
+
+</body>
+</html>
